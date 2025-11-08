@@ -1,0 +1,28 @@
+/* src/styles/globals.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600&display=swap');
+
+/* Define Tailwind utility classes for these fonts.
+  This requires setup in tailwind.config.js, but for simplicity
+  in a single component, we can define them as base classes.
+  For a full project, you would add these to tailwind.config.js
+*/
+
+/* We will apply these classes directly */
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Base styles to apply fonts if needed, but we will use classes */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
