@@ -32,7 +32,7 @@ const logoLetterVariants = {
   },
 };
 
-const logoText = "Fitniya?";
+const logoText = "Fitniya";
 
 // --- Desktop NavLink Component ---
 const NavLinkItem = ({ name, path }) => (
