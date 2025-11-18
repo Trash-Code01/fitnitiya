@@ -1,12 +1,16 @@
 /* eslint-disable no-unused-vars */
-import { Outlet } from "react-router-dom";
+// src/layouts/MainLayout.jsx
+
+import { Outlet, useLocation } from "react-router-dom"; // Added useLocation
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
-import Lenis from "lenis"; // ✅ fixed import
+import Lenis from "lenis";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function MainLayout() {
+  const location = useLocation(); // Hook to get current route
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -25,7 +29,8 @@ export default function MainLayout() {
   }, []);
 
   return (
-    <div className="relative bg-white text-[#1E1E1E]">
+    // --- FIXED: Added 'w-full' and 'overflow-x-hidden' ---
+    <div className="relative bg-white text-[#1E1E1E] w-full overflow-x-hidden">
       <Navbar />
 
       <AnimatePresence mode="wait">

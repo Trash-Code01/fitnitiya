@@ -100,7 +100,6 @@ const cardVariants = {
 };
 
 // --- 4. CARD SUB-COMPONENT ---
-// Reusable card to avoid duplicating code
 const ReviewCard = ({ review }) => (
   <div className="flex flex-col items-center text-center bg-white p-5 md:p-8 rounded-xl shadow-lg border border-gray-100 h-full">
     <img 
@@ -134,7 +133,6 @@ const Testimonials = () => {
   const headingContainerRef = useRef(null);
   const totalWords = useMemo(() => heading.join(' ').split(' ').length, [heading]);
   
-  // useEffect for the Text Reveal
   useEffect(() => {
     const handleScroll = () => {
       if (!headingContainerRef.current) return;
@@ -172,12 +170,12 @@ const Testimonials = () => {
         </div>
 
         {/* --- MOBILE HORIZONTAL SCROLL --- */}
-        <div className="md:hidden pl-4">
+        <div className="md:hidden pl-4 w-full"> {/* Added w-full */}
           <div className="flex overflow-x-auto gap-4 pb-4 hide-scrollbar snap-x snap-mandatory scroll-smooth">
             {reviews.map((review, index) => (
               <motion.div
                 key={review.name}
-                className="flex-shrink-0 w-[65vw] snap-center"
+                className="shrink-0 w-[85vw] snap-center" // Increased width slightly for better mobile focus
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -186,13 +184,13 @@ const Testimonials = () => {
                 <ReviewCard review={review} />
               </motion.div>
             ))}
-            <div className="flex-shrink-0 w-3"></div>
+            <div className="shrink-0 w-3"></div>
           </div>
         </div>
 
         {/* --- DESKTOP 3-COLUMN GRID --- */}
         <motion.div 
-          className="hidden md:grid md:grid-cols-3 gap-8" // Hidden on mobile
+          className="hidden md:grid md:grid-cols-3 gap-8"
           variants={gridContainerVariants}
           initial="hidden"
           whileInView="visible"
