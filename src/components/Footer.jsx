@@ -92,13 +92,13 @@ const AgencyMark = ({ text }) => {
   }, [text]); // Only run once when 'text' is set
 
   return (
-    <p className="text-sm font-inter text-gray-500 h-6"> {/* h-6 to prevent layout shift */}
+    <a href="https://www.devacia.com/" title="Devacia - Digital Agency" className="text-sm font-inter text-gray-500 h-6 hover:text-pink-500 transition-colors duration-300 block"> {/* h-6 to prevent layout shift */}
       {displayedText}
       {/* Blinking cursor that stops when done */}
       {displayedText.length < text.length && (
         <span className="inline-block w-[2px] h-4 bg-gray-500 ml-1 animate-ping"></span>
       )}
-    </p>
+    </a>
   );
 };
 
